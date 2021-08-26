@@ -1,16 +1,17 @@
 Ext.define('app2.view.main.MainView', {
-  extend: 'Ext.tab.Panel',
+extend: 'Ext.dataview.DataView',
   xtype: 'mainview',
-  controller: 'mainviewcontroller',
-        viewModel: {
-            type: 'mainviewmodel'
-        },
-        tabBarPosition: 'bottom',
-        items: [{
-            title: "Thumbnails",
-            html: '<h1>tunes view</h1'
-        }, {
-            title: "Grid",
-            html: '<h1>tunes grid</h1>'
-        }]
+ // extend: 'Ext.view.View',
+  store: {
+      model: 'app2.view.main.MainViewModel',
+      autoLoad: true
+  },
+  itemTpl: '<img src="{image}">',
+  cls: 'movies',
+  itemCls: 'movie',
+  overItemCls: 'over',
+  selectedItemCls: 'selected',
+  emptyText: 'An Internet connection is needed to load titles from iTunes.'
+ 
+ 
 })
